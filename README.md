@@ -82,4 +82,4 @@ Things you may want to cover:
 | order         | references | null: false,foreign_key: true |
 
 
-belongs_to :order
+- belongs_to :order
