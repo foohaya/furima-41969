@@ -38,8 +38,8 @@ Things you may want to cover:
 | first_name_kana    | string | null: false               | 
 | birthday           | date   | null: false               | 
 
-has_many :items
-has_many :orders
+- has_many :items
+- has_many :orders
 
 ## items テーブル
 
@@ -55,8 +55,8 @@ has_many :orders
 | price                 | integer    | null: false                   |
 | user                  | references | null: false,foreign_key: true |
 
-belongs_to :user
-has_one :order
+- belongs_to :user
+- has_one :order
 
 ## orders テーブル
 
@@ -65,10 +65,9 @@ has_one :order
 | user   | references | null: false,foreign_key: true |
 | item   | references | null: false,foreign_key: true |
 
-belongs_to :user
-belongs_to :item
-has_one :address
-
+- belongs_to :user
+- belongs_to :item
+- has_one :address
 
 ## addresses テーブル
 
@@ -83,5 +82,4 @@ has_one :address
 | order         | references | null: false,foreign_key: true |
 
 
-building_name
 belongs_to :order
