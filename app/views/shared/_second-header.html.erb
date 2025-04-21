@@ -1,3 +1,17 @@
 <header class='second-header'>
   <%= link_to image_tag("furima-logo-color.png", class:"second-logo"), "/" %>
+  
+  <div class="header-right">
+    <% if user_signed_in? %>
+      <span class="user-name">
+        ようこそ、<%= current_user.nickname %> さん！
+      </span>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn" %>
+    <% else %>
+     <% unless controller.controller_name == 'registrations' && action_name == 'new' || controller.controller_name == 'sessions' && action_name == 'new' %>
+      <%= link_to "ログイン", new_user_session_path, class: "login-btn" %>
+      <%= link_to "新規登録", new_user_registration_path, class: "signup-btn" %>
+     <% end %>
+   <% end %>
+  </div>
 </header>
