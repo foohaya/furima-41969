@@ -38,6 +38,12 @@ RSpec.describe User, type: :model do
         expect(another_user.errors.full_messages).to include('Email has already been taken')
       end
 
+      it 'is invalid when email does not include @' do
+        @user.email = 'testemail.com' 
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Email is invalid')
+      end
+
       it 'is invalid with a password containing only letters' do
         @user.password = 'abcdef'
         @user.password_confirmation = 'abcdef'
