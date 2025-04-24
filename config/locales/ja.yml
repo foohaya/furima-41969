@@ -1,0 +1,29 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        last_name: 名字
+        first_name: 名前
+        last_name_kana: 名字(カナ)
+        first_name_kana: 名前(カナ)
+        birthday: 生年月日
+    errors:
+      models:
+        user:
+          attributes:
+            nickname:
+              blank: "を入力してください"
+            email:
+              blank: "を入力してください"
+              taken: "はすでに存在します"
+            password:
+              invalid: "は不正な値です"
+            last_name:
+              invalid: "全角（漢字・ひらがな・カタカナ）で入力してください"
+            first_name_kana:
+              invalid: "全角カタカナで入力してください"
+            birthday:
+              blank: "を入力してください"
