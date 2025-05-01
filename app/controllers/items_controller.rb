@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id]) 
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -37,7 +37,8 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :info, :category_id, :sales_status_id, :shipping_fee_id, :prefecture_id, :scheduled_delivery_id, :price, :image)
+    params.require(:item).permit(:name, :info, :category_id, :sales_status_id, :shipping_fee_id, :prefecture_id,
+                                 :scheduled_delivery_id, :price, :image)
   end
 
   def set_collections

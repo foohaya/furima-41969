@@ -12,6 +12,7 @@ module Furima41969
     config.load_defaults 7.1
     
     config.time_zone = 'Tokyo'
+    config.active_storage.variant_processor = :mini_magick
     config.active_record.default_timezone = :local
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.

@@ -39,7 +39,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'is invalid when email does not include @' do
-        @user.email = 'testemail.com' 
+        @user.email = 'testemail.com'
         @user.valid?
         expect(@user.errors.full_messages).to include('Email is invalid')
       end
@@ -66,7 +66,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'is invalid when password contains full-width characters' do
-        @user.password = 'ａｂｃ123'  # 全角英数字
+        @user.password = 'ａｂｃ123' # 全角英数字
         @user.password_confirmation = 'ａｂｃ123'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is invalid')
