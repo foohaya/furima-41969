@@ -6,7 +6,7 @@
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
     
-    <%= form_with model: @item, local: true do |f| %>
+    <%= form_with model: @item, local: true, data: { turbo: false } do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
 
     <%# 商品画像 %>
@@ -138,11 +138,10 @@
     <div class="sell-btn-contents">
       <%= f.submit "出品する" ,class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
-    </div>
-
-    <%= javascript_include_tag "application" %> 
-    <% end %> 
-  </div>
+      </div>
+      <% end %>
+   
+   </div>
 
   <%# /下部ボタン %>
   <footer class="items-sell-footer">
@@ -156,4 +155,6 @@
       ©︎Furima,Inc.
     </p>
   </footer>
+
+   <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %> 
 </div>
