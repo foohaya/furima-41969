@@ -68,6 +68,7 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "webdriver"
 end
 
 group :production do
@@ -75,3 +76,6 @@ group :production do
 end
 
 gem 'devise'
+gem 'active_hash'
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
