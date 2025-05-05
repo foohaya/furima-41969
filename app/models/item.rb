@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user
-  # has_one :order
+  #has_one :order
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -30,4 +30,8 @@ class Item < ApplicationRecord
     less_than_or_equal_to: 9_999_999,
     message: 'is out of setting range'
   }
+
+  def sold_out?
+    false
+  end
 end
