@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # @item = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  # ef edit
+  # def edit
   # end
 
   # def update
