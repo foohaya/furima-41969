@@ -32,6 +32,6 @@ class Item < ApplicationRecord
   }
 
   def sold_out?
-    false
+    order.present?
   end
 end

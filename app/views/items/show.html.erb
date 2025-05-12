@@ -13,11 +13,11 @@
     <p>画像がありません</p>
   <% end %>
    
-  <%# 
-<div class="sold-out">
-  <span>Sold Out!!</span>
-</div>
-%>
+<% if @item.sold_out? %>
+  <div class='sold-out'>
+    <span>Sold Out!!</span>
+  </div>
+<% end %>
 
     </div>
     <div class="item-price-box">
