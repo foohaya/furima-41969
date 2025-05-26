@@ -41,7 +41,6 @@
     </ul>
   </div>
 <% end %>
-
     <%= form_with model: @order_address, url: item_orders_path(@item), local: true, id: 'charge-form', class: 'transaction-form-wrap' do |f| %>
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
@@ -133,6 +132,8 @@
       <%= f.submit "購入" ,class:"buy-red-btn", id:"button" %>
     </div>
     <% end %>
+
   </div>
 </div>
+<script src="https://js.pay.jp/v2/pay.js"></script>
 <%= render "shared/second-footer"%>
