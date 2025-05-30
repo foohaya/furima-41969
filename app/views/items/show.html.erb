@@ -29,18 +29,12 @@
       </span>
     </div>
 
-    <% if user_signed_in? %>
-  <% if current_user == @item.user %>
-    <% if @item.sales_status_id != 1 %>
-      <%= link_to "商品の編集", edit_item_path(@item), class: "item-red-btn" %>
-      <p class="or-text">or</p>
-      <%= link_to "削除",  item_path(@item), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "item-destroy" %>
-    <% end %>
-  <% else %>
-    <% if @item.sales_status_id != 1 %>
-      <%= link_to "購入画面に進む", item_orders_path(@item), data: { turbo: false }, class: "item-red-btn" %>
-    <% end %>
-  <% end %>
+    <% if user_signed_in? && current_user == @item.user && @item.order.nil? %>
+  <%= link_to "商品の編集", edit_item_path(@item), class: "item-red-btn" %>
+  <p class="or-text">or</p>
+  <%= link_to "削除",  item_path(@item), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "item-destroy" %>
+<% elsif user_signed_in? && current_user != @item.user && @item.order.nil? %>
+  <%= link_to "購入画面に進む", item_orders_path(@item), data: { turbo: false }, class: "item-red-btn" %>
 <% end %>
 
   <div class="item-explain-box">
@@ -97,7 +91,7 @@
     </p>
     <button type="submit" class="comment-btn">
       <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-      <span>コメントする<span>
+      <span>コメントする</span>
     </button>
   </form>
 </div>
