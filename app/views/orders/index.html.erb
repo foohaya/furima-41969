@@ -13,8 +13,9 @@
           <%= @item.name %>
         </h2>
         <div class='buy-item-price'>
-          <p class='item-price-text'>¥<%= @item.price %></p>
-          <p class='item-price-sub-text'><%= '配送料負担' %></p>
+          <p class='item-price-sub-text'>
+          <%= @item.shipping_fee_id == 1 ? "送料込み（出品者負担）" : "着払い（購入者負担）" %>
+</p>
         </div>
       </div>
     </div>
@@ -30,17 +31,8 @@
       </p>
     </div>
     <%# /支払額の表示 %>
+    <%= render "shared/error_messages", model: @order_address %>
     
-    <% if @order_address.errors.any? %>
-  <div id="error_explanation"style="color: red;">
-    <h2><%= pluralize(@order_address.errors.count, "error") %> prohibited this purchase:</h2>
-    <ul>
-      <% @order_address.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
     <%= form_with model: @order_address, url: item_orders_path(@item), local: true, id: 'charge-form', class: 'transaction-form-wrap' do |f| %>
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
