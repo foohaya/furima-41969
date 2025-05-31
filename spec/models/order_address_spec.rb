@@ -4,17 +4,7 @@ RSpec.describe OrderAddress, type: :model do
   before do
     @user = FactoryBot.create(:user)
     @item = FactoryBot.create(:item)
-    @order_address = OrderAddress.new(
-      postal_code: '123-4567',
-      prefecture_id: 2,
-      city: '渋谷区',
-      address: '渋谷1-1-1',
-      building: '渋谷ハイツ',
-      phone_number: '09012345678',
-      token: 'tok_abcdefghijk00000000000000000',
-      user_id: @user.id,
-      item_id: @item.id
-    )
+    @order_address = FactoryBot.build(:order_address, user_id: @user.id, item_id: @item.id)
   end
 
   context 'クレジットカード情報' do
