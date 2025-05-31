@@ -98,4 +98,3 @@ RSpec.describe OrderAddress, type: :model do
     end
   end
 end
-
