@@ -36,6 +36,7 @@
     <%= form_with model: @order_address, url: item_orders_path(@item), local: true, id: 'charge-form', class: 'transaction-form-wrap' do |f| %>
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
+     <div id="card-errors" style="color: red; margin: 10px 0; text-align: center;"></div>
       <h1 class='info-input-haedline'>
         クレジットカード情報入力
       </h1>

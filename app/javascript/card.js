@@ -24,9 +24,12 @@ const pay = () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    const errorDiv = document.getElementById("card-errors");
+    errorDiv.textContent = ""; 
+
     payjp.createToken(numberElement).then((response) => {
       if (response.error) {
-        alert(response.error.message);
+        errorDiv.textContent = response.error.message;
       } else {
         const token = response.id;
         const tokenInput = document.createElement("input");
