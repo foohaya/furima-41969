@@ -3,10 +3,12 @@
   
   <div class="header-right">
     <% if user_signed_in? %>
-      <span class="user-name">
-        ようこそ、<%= current_user.nickname %> さん！
-      </span>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn" %>
+      <% unless controller.controller_name == 'orders' && action_name == 'index' %>
+        <span class="user-name">
+          ようこそ、<%= current_user.nickname %> さん！
+        </span>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn" %>
+      <% end %>
     <% else %>
      <% unless (controller.controller_name == 'registrations' && action_name.in?(%w[new create])) || 
                (controller.controller_name == 'sessions' && action_name.in?(%w[new create])) %>
