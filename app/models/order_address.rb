@@ -7,15 +7,17 @@ class OrderAddress
     validates :user_id
     validates :item_id
     validates :postal_code
+    validates :prefecture_id
     validates :city
     validates :address
     validates :phone_number
     validates :token
   end
 
-  validates :postal_code, format: { with: /\A\d{3}-\d{4}\z/, message: 'is invalid. Include hyphen(-)' }
-  validates :prefecture_id, numericality: { other_than: 1, message: 'must be other than 1' }
-  validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'is invalid' }
+  validates :postal_code, format: { with: /\A\d{3}-\d{4}\z/, message: 'is invalid. Enter it as follows (e.g. 123-4567)' }
+  validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'is invalid. Input only number' }
+  validates :phone_number, length: { minimum: 10,message: 'is too short'}
 
   def save
     return false unless valid?

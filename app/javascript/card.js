@@ -29,7 +29,7 @@ const pay = () => {
 
     payjp.createToken(numberElement).then((response) => {
       if (response.error) {
-        errorDiv.textContent = response.error.message;
+        form.submit();
       } else {
         const token = response.id;
         const tokenInput = document.createElement("input");
